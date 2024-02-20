@@ -1,14 +1,14 @@
 # qt-frameless-window 简单易用的Qt无边框窗体库
 
 ## 说明
-1、目前仅支持Windows
-2、支持特性：Windows Snap（拖拽快速布局）、拖拽缩放
-3、支持标题栏完全自定义
+1. 目前仅支持Windows
+2. 支持特性：Windows Snap（拖拽快速布局）、拖拽缩放
+3. 支持标题栏完全自定义
 
 ## 使用方式
-* 将本项目添加到你的项目，注意配置引用路径
-* 继承`h::FramelessWindow`，添加少量配置代码即可实现基本的无边框窗口。
-* 示例代码，可下载源码直接运行
+1. 将本项目添加到你的项目，注意配置引用路径
+2. 继承`h::FramelessWindow`，添加少量配置代码即可实现基本的无边框窗口。
+3. 示例代码，可下载源码直接运行
 ```c++
 #include <QApplication>
 #include <QStyle>
