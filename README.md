@@ -1,5 +1,10 @@
 # qt-frameless-window 简单易用的Qt无边框窗体库
 
+## 使用下面的命令下载源码，运行例子
+```bash
+git clone --recursive --shallow-submodules https://github.com/hanjianqiao/qt-frameless-window.git
+```
+
 ## 说明
 1. 目前仅支持Windows
 2. 支持特性：Windows Snap（拖拽快速布局）、拖拽缩放
