@@ -42,6 +42,11 @@ else()
     )
 endif()
 
+# Release 模式下也输出文件、函数
+add_compile_definitions(QT_MESSAGELOGCONTEXT)
+add_subdirectory(submodules/qt-easy-logger)
+target_include_directories(qt-framless-window-sample PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/submodules")
+target_link_libraries(qt-framless-window-sample PRIVATE qt-easy-logger)
 target_link_libraries(qt-framless-window-sample PRIVATE qt-framless-window)
 target_link_libraries(qt-framless-window-sample PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
