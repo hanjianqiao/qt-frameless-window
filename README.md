@@ -25,7 +25,8 @@
     #include <QApplication>
     #include <QStyle>
     #include "samplewindow.h"
-    
+
+    #include <qt-frameless-window/framelesswindow.h>
     using namespace h;
     
     SampleWindow::SampleWindow()
