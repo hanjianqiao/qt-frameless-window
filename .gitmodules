@@ -1,3 +1,0 @@
-[submodule "submodules/qt-easy-logger"]
-	path = submodules/qt-easy-logger
-	url = git@github.com:hanjianqiao/qt-easy-logger.git
