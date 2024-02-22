@@ -24,32 +24,37 @@ add_library(qt-framless-window STATIC
 
 target_link_libraries(qt-framless-window PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-set(SAMPLE_SOURCES
-    main.cpp
-    samplewindow.h samplewindow.cpp
-    samplewindow2.h samplewindow2.cpp
-)
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(qt-framless-window-sample
-        MANUAL_FINALIZATION
-        ${SAMPLE_SOURCES}
-        qt-frameless-window-sample.qrc
+# 只有顶层项目时才构建例子
+if(PROJECT_IS_TOP_LEVEL)
+    # Release 模式下也输出文件、函数
+    add_compile_definitions(QT_MESSAGELOGCONTEXT)
+
+    set(SAMPLE_SOURCES
+        main.cpp
+        samplewindow.h samplewindow.cpp
+        samplewindow2.h samplewindow2.cpp
     )
-else()
-    add_executable(qt-framless-window-sample
-        ${SAMPLE_SOURCES}
-    )
-endif()
 
-# Release 模式下也输出文件、函数
-add_compile_definitions(QT_MESSAGELOGCONTEXT)
-add_subdirectory(submodules/qt-easy-logger)
-target_include_directories(qt-framless-window-sample PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/submodules")
-target_link_libraries(qt-framless-window-sample PRIVATE qt-easy-logger)
-target_link_libraries(qt-framless-window-sample PRIVATE qt-framless-window)
-target_link_libraries(qt-framless-window-sample PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+    if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+        qt_add_executable(qt-framless-window-sample
+            MANUAL_FINALIZATION
+            ${SAMPLE_SOURCES}
+            qt-frameless-window-sample.qrc
+        )
+    else()
+        add_executable(qt-framless-window-sample
+            ${SAMPLE_SOURCES}
+        )
+    endif()
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(qt-framless-window-sample)
+    add_subdirectory(submodules/qt-easy-logger)
+    target_include_directories(qt-framless-window-sample PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/submodules")
+    target_link_libraries(qt-framless-window-sample PRIVATE qt-easy-logger)
+    target_link_libraries(qt-framless-window-sample PRIVATE qt-framless-window)
+    target_link_libraries(qt-framless-window-sample PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+    if(QT_VERSION_MAJOR EQUAL 6)
+        qt_finalize_executable(qt-framless-window-sample)
+    endif()
 endif()
