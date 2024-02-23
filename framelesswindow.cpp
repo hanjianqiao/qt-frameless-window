@@ -7,6 +7,7 @@
 #include <QHBoxLayout>
 #include <QCoreApplication>
 #include <QGuiApplication>
+
 #include "framelesswindow.h"
 
 #ifdef Q_OS_WIN
