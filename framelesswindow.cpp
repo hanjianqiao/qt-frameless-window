@@ -59,12 +59,11 @@ FramelessWindowDefaultTitleBar::FramelessWindowDefaultTitleBar(QWidget *parent)
     : FramelessWindowTitleBar{parent}
 {
     m_iconLabel = new QLabel(this);
+    m_iconLabel->setPixmap(QApplication::style()->standardIcon(QStyle::SP_ComputerIcon).pixmap(16, 16));
     m_titleLabel = new QLabel(qApp->applicationName(), this);
     m_minimizeButton = new QPushButton(this);
     m_maximizeButton = new QPushButton(this);
     m_closeButton = new QPushButton(this);
-
-    // m_maximizeButton->setMouseTracking(true);
 
     m_minimizeButton->setIcon(QApplication::style()->standardIcon(QStyle::SP_TitleBarMinButton));
     if(windowState() == Qt::WindowMaximized){
