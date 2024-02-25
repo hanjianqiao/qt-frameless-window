@@ -303,10 +303,8 @@ bool FramelessWindow::nativeEvent(const QByteArray &eventType, void *message, qi
         {
             *result = 0;
             if(isMaximized()){
-                qDebug() << "showNormal";
                 showNormal();
             }else{
-                qDebug() << "showMaximized";
                 showMaximized();
             }
             return true;
