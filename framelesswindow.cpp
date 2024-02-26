@@ -25,6 +25,14 @@ FramelessWindowTitleBar::FramelessWindowTitleBar(QWidget *parent)
 {
 }
 
+void FramelessWindowTitleBar::setTitle(const QString &title){
+    qWarning() << "FramelessWindowTitleBar::setTitle dose nothing";
+}
+
+void FramelessWindowTitleBar::setIcon(const QIcon &icon){
+    qWarning() << "FramelessWindowTitleBar::setIcon dose nothing";
+}
+
 void FramelessWindowTitleBar::mousePressEvent(QMouseEvent *event){
     window()->windowHandle()->startSystemMove();
     QWidget::mousePressEvent(event);

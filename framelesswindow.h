@@ -15,8 +15,8 @@ public:
 
     virtual void onWindowStateChanged(Qt::WindowState state) = 0;
     virtual QWidget *maximizeButton() const = 0;
-    virtual void setTitle(const QString &title) = 0;
-    virtual void setIcon(const QIcon &icon) = 0;
+    virtual void setTitle(const QString &title);
+    virtual void setIcon(const QIcon &icon);
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
