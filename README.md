@@ -22,9 +22,9 @@
    target_link_libraries(yourTarget PRIVATE qt-frameless-window)
    ```
 2.2 修改Project.pro，添加下面的代码即可
-```
-include(submodules/qt-frameless-window/qt-frameless-window.pri)
-```
+   ```
+   include(submodules/qt-frameless-window/qt-frameless-window.pri)
+   ```
 
 3. 继承`h::FramelessWindow`，进行少量配置即可，参考代码如下
     ```c++
