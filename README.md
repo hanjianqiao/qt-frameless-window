@@ -13,13 +13,19 @@
    ```bash
    git submodule add https://github.com/hanjianqiao/qt-frameless-window.git submodules/qt-frameless-window
    ```
-2. 修改CMakeLists.txt，添加下面指令
+2. 集成到你的项目
+2.1. 修改CMakeLists.txt，添加下面指令
    ```
    # 假设你的目标名称为：yourTarget
    add_subdirectory(submodules/qt-frameless-window)
    target_include_directories(yourTarget PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/submodules")
    target_link_libraries(yourTarget PRIVATE qt-frameless-window)
    ```
+2.2 修改Project.pro，添加下面的代码即可
+```
+include(submodules/qt-frameless-window/qt-frameless-window.pri)
+```
+
 3. 继承`h::FramelessWindow`，进行少量配置即可，参考代码如下
     ```c++
     #include <QApplication>
